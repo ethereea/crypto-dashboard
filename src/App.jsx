@@ -27,16 +27,14 @@ function App() {
     <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
       <h1>🧠 Crypto Analyzer Dashboard</h1>
 
-      <div style={{ marginBottom: '1rem' }}>
-        <textarea
-          rows="4"
-          cols="50"
-          placeholder="Scrie un text despre un crypto..."
-          value={text}
-          onChange={e => setText(e.target.value)}
-        />
-      </div>
-
+      <textarea
+        rows={4}
+        cols={50}
+        placeholder="Scrie un text despre un crypto..."
+        value={text}
+        onChange={e => setText(e.target.value)}
+      />
+      <br />
       <button onClick={analyzeSentiment}>Analizează Sentiment</button>
       <button onClick={fetchSignal} style={{ marginLeft: '1rem' }}>Primește Semnal</button>
 
