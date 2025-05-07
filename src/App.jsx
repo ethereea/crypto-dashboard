@@ -5,26 +5,33 @@ function App() {
   const [sentiment, setSentiment] = useState(null);
   const [signal, setSignal] = useState(null);
 
-  const API_BASE = 'https://crypto-analyzer.onrender.com';
+  const API_BASE = 'https://crypto-analyzer.onrender.com'; // asigură-te că e corect!
 
   const analyzeSentiment = async () => {
-  console.log("Apasat pe Analizează Sentiment");
-  const res = await fetch(`${API_BASE}/sentiment`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text })
-  });
-  const data = await res.json();
-  setSentiment(data.score.toFixed(2));
-};
+    console.log("Apasat pe Analizează Sentiment");
+    try {
+      const res = await fetch(`${API_BASE}/sentiment`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+      const data = await res.json();
+      setSentiment(data.score.toFixed(2));
+    } catch (err) {
+      console.error('Eroare la analiză:', err);
+    }
+  };
 
   const fetchSignal = async () => {
-  console.log("Apasat pe Primește Semnal");
-  const res = await fetch(`${API_BASE}/signal`);
-  const data = await res.json();
-  setSignal(data);
-};
-
+    console.log("Apasat pe Primește Semnal");
+    try {
+      const res = await fetch(`${API_BASE}/signal`);
+      const data = await res.json();
+      setSignal(data);
+    } catch (err) {
+      console.error('Eroare la semnal:', err);
+    }
+  };
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
