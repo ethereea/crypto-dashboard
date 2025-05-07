@@ -8,20 +8,23 @@ function App() {
   const API_BASE = 'https://crypto-analyzer.onrender.com';
 
   const analyzeSentiment = async () => {
-    const res = await fetch(`${API_BASE}/sentiment`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text })
-    });
-    const data = await res.json();
-    setSentiment(data.score.toFixed(2));
-  };
+  console.log("Apasat pe Analizează Sentiment");
+  const res = await fetch(`${API_BASE}/sentiment`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text })
+  });
+  const data = await res.json();
+  setSentiment(data.score.toFixed(2));
+};
 
   const fetchSignal = async () => {
-    const res = await fetch(`${API_BASE}/signal`);
-    const data = await res.json();
-    setSignal(data);
-  };
+  console.log("Apasat pe Primește Semnal");
+  const res = await fetch(`${API_BASE}/signal`);
+  const data = await res.json();
+  setSignal(data);
+};
+
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
