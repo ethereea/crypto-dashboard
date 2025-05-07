@@ -5,7 +5,7 @@ function App() {
   const [sentiment, setSentiment] = useState(null);
   const [signal, setSignal] = useState(null);
 
-  const API_BASE = 'https://crypto-analyzer.onrender.com'; // folosește URL-ul tău
+  const API_BASE = 'https://crypto-analyzer.onrender.com'; // Schimbă dacă ai alt link
 
   const analyzeSentiment = async () => {
     const res = await fetch(`${API_BASE}/sentiment`, {
